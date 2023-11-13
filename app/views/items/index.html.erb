@@ -1,2 +1,38 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="container mt-2">
+  <h2>レビュー一覧</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table">
+        
+        <% @items.each do |item| %>
+        <!--<thead>-->
+          <tr>
+            <td>画像</td>
+            <td>ユーザー名</td>
+          </tr>
+        <!--</thead>-->
+          <!--<tbody>-->
+            <tr>
+              <td><%= image_tag item.get_image, size:"100×100" %></td>
+            </tr>
+    <!--商品名-->
+            <tr>
+              <td><%= item.name %></td>
+            </tr>
+            
+            <tr>
+              <td>甘口</td>
+              <td>宮城県</td>
+            </tr>
+            
+            <tr>
+              <td>いいね</td>
+              <td>コメント</td>
+            </tr>
+          <!--</tbody>-->
+        <% end %>
+        
+      </table>
+    </div>
+  </div>
+</div>
