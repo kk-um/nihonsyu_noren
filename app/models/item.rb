@@ -2,10 +2,13 @@ class Item < ApplicationRecord
   has_one_attached :image
   
   belongs_to :user
-  has_many :likes, dependent: :destroy
+  # has_many :likes, dependent: :destroy
   
+  # 中間テーブルを経由してgenreを関連付けている
+  has_many :item_genre_relations
+  has_many :genres, through: :item_genre_relations
 
-  def get_image
+  def get_image(width,height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')

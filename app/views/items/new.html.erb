@@ -28,8 +28,15 @@
 
 
         <tr>
-          <td>ジャンル</td>
-          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい", class: "rounded" %></td>
+          <td>
+            <%= f.label :genre, 'ジャンル' %>
+            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %> 
+              <%= genre.label do %>
+                <%= genre.check_box %>
+                <%= genre.text %>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
 
         <tr>

@@ -1,2 +1,37 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    
+  <!--画像-->
+    <div class="col-md-6">
+      <%= image_tag @item.get_image(300,400)%>
+    </div>
+    
+    <div class="col-md-6">
+      <table class="table table-borderless">
+    <!--商品名-->
+        <tr>
+          <td><h3 style="font-weight: bold;"><%= @item.name %></h3></td>
+        </tr>
+    <!--ジャンル-->
+        <tr>
+          <td><% @item.genres.each do |genre| %>
+              <%= genre.name %>
+              <% end %>
+          </td>
+        </tr>
+    <!--詳細-->
+        <tr>
+          <td><h4><%= @item.explanation %></h4></td>
+        </tr>
+    <!--価格-->
+        <tr>
+          <td>約<%= @item.price %>円</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <% if @item.user == current_user %>
+              <%= link_to "削除", item_path(@item), method: :delete %>
+            <% end %>
+          </td>
+        </tr>

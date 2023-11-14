@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root to: 'homes#index'
   resources :homes,only: [:index]
-
-  devise_for :users
+  resources :items
 
   resources :items do
     collection do
@@ -16,6 +15,14 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :users
+  
+  get 'users/my_page' => 'users#show'
+  get 'users/quit' => "users#quit"
+  patch 'users/withdraw' => 'users#withdraw'
+  resources :users, only: [:edit, :update]
+
+  
   resources :users do
     resources :comments, only: [:create,:destroy],module: 'users'
   end

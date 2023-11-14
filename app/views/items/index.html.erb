@@ -13,16 +13,25 @@
         <!--</thead>-->
           <!--<tbody>-->
             <tr>
-              <td><%= image_tag item.get_image, size:"100×100" %></td>
+              <td>
+                <%= link_to item_path(item.id) do %>
+                  <%= image_tag item.get_image(100,100) %>
+                <% end %>
+              </td>
             </tr>
     <!--商品名-->
             <tr>
-              <td><%= item.name %></td>
+              <td>
+                <%= link_to item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
             </tr>
-            
+    <!--ジャンル-->
             <tr>
-              <td>甘口</td>
-              <td>宮城県</td>
+              <td><% item.genres.each do |genre| %>
+                  <%= genre.name %>
+                  <% end %></td>
             </tr>
             
             <tr>

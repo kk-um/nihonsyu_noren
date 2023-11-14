@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -24,12 +25,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to '/items'
   end
   
   private
   # ストロングパラメータ
   def item_params
-    params.require(:item).permit(:image, :name, :explanation, :genre_id, :price)
+    params.require(:item).permit(:image, :name, :explanation, :price, genre_ids: [])
   end
   
   
