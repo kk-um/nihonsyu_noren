@@ -1,2 +1,38 @@
-<h1>Users::Users#show</h1>
-<p>Find me in app/views/users/users/show.html.erb</p>
+<!--ユーザーマイページ-->
+<div class="container">
+  <div class="row mb-3">
+    <h3>マイページ</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @user.get_profile_image(50,50) %>
+    </div>
+    <div class="col-md-8">
+      <%= @user.name %>
+    </div>
+    <% if @user == current_user %>
+    <%= link_to "プロフィール編集",edit_user_path(@user) %>
+    <% end %>
+  </div>
+
+  <div class ="row mt-5">
+    <h3>投稿</h3>
+  </div>
+
+  <div class ="row">
+    <div class ="col">
+      <table class="table">
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= image_tag item.get_image(200,200)%></td>
+          <td><%= item.name %>
+              <%= render 'items/like', item: item %>
+              <%= link_to "#{item.comments.count} コメント", item_path(item.id) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

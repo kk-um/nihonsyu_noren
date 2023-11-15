@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   resources :items
 
   resources :items do
-    collection do
-      resources :likes, only: [:create,:destroy],module: 'items'
-    end
+    resources :comments, only: [:create,:destroy],module: 'items'
   end
+  
+  resources :items do
+      resource :likes, only: [:create,:destroy],module: 'items'
+    end
+
 
   resources :items do
     collection do
@@ -17,15 +20,16 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  get 'users/my_page' => 'users#show'
-  get 'users/quit' => "users#quit"
+  resources :users
+  # get 'users/my_page' => 'users#show'
+  # get 'users/quit' => "users#quit"
   patch 'users/withdraw' => 'users#withdraw'
-  resources :users, only: [:edit, :update]
+  # resources :users, only: [:edit, :update]
 
-  
-  resources :users do
-    resources :comments, only: [:create,:destroy],module: 'users'
-  end
+  # いらないかも↓
+  # resources :users do
+  #   resources :comments, only: [:create,:destroy],module: 'users'
+  # end
 
   resources :users do
     resources :relationships, only: [:create,:destroy],module: 'users'

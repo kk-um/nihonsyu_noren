@@ -39,7 +39,7 @@
 <html>
   <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
     <head>
-      <title>NaganoCake</title>
+      <title>nihonsyu noren</title>
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
@@ -75,15 +75,15 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to 'マイページ', users_my_page_path, class: 'nav-link text-light m-2' %>
+                  <%= link_to 'マイページ', user_path(current_user), class: 'nav-link text-light m-2' %>
                 </li>
 
                 <li class="nav-item">
                   <%= link_to '投稿', new_item_path, class: 'nav-link text-light m-2' %>
                 </li>
-                
+
                 <li class="nav-item">
-                  <%= link_to "商品一覧", items_path, class: 'nav-link text-light m-2' %>
+                  <%= link_to "投稿一覧", items_path, class: 'nav-link text-light m-2' %>
                 </li>
 
 
@@ -133,7 +133,7 @@
       </nav>
       </header>
 
-    <main class="pb-5">
+    <main class="pb-5" style="background-color: #d4dcd6;">
       <row>
       <div class="d-flex justify-content-center mt-3">
         <p class="notice alert-info px-3" role="alert"><%= notice %></p>
