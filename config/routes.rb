@@ -40,7 +40,9 @@ Rails.application.routes.draw do
   end
 
 
-  devise_for :admins
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers:{
+    sessions: "admin/sessions"
+  }
 
   get "/admin" => "admin/homes#index"
 
