@@ -9,9 +9,9 @@ class ItemsController < ApplicationController
     @item.save
     redirect_to '/items'
   end
-  
+
   def index
-    @items = Item.all
+    @items = params[:genre_id].present? ? Genre.find(params[:genre_id]).items : Item.all
   end
 
   def show
@@ -30,12 +30,12 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to '/items'
   end
-  
+
   private
   # ストロングパラメータ
   def item_params
     params.require(:item).permit(:image, :name, :explanation, :price, genre_ids: [])
   end
-  
-  
+
+
 end

@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_path
     when User
-      root_path
+      items_path
     end
   end
-  
+
   def after_sign_out_path_for(resource)
     root_path
   end
-  
+
   protected
 
   def configure_permitted_parameters
