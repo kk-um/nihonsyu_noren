@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: 'homes#index'
   resources :homes,only: [:index]
   resources :items
@@ -39,12 +40,12 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
+  get "/admin" => "admin/homes#index"
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers:{
     sessions: "admin/sessions"
   }
 
-  get "/admin" => "admin/homes#index"
 
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
