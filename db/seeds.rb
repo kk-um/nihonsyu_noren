@@ -9,7 +9,7 @@
 genres = ['甘口', '辛口', '純米酒', '吟醸酒', '本醸造酒', '普通酒']
 
 genres.each do |genre|
-  Genre.create(name: genre)
+  Genre.create!(name: genre)
 end
 
 Admin.create!(
