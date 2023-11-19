@@ -15,7 +15,12 @@ class User < ApplicationRecord
     super && (self.is_active === true)
   end
   
-  
+# 停止中のアカウントへのエラーメッセージ
+  def inactive_message
+    active_for_authentication? ? super : I18n.t('flash_message.inactive_user')
+  end
+
+
 # ゲストユーザー
 GUEST_USER_EMAIL = "guest@example.com"
   def self.guest
