@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h5 class="border p-3 my-3">
+      <%= @user.name %>さんの詳細
+    </h5>
+    <div class="d-flex justify-content-center p-3 my-3">
+      <%= link_to "編集する", edit_admin_user_path, class:"btn btn-success ml-3" %>
+    </div>
+  </div>
+  
+  <div class="row d-flex justify-content-center">
+    <div>
+      <table class="table table-borderless">
+        <tr>
+          <td class="bd-light">会員ID</td>
+          <td><%= @user.id %></td>
+        </tr>
+        
+        <tr>
+          <td class="bd-light">ユーザー名</td>
+          <td><%= @user.name %></td>
+        </tr>
+  
+        <tr>
+          <td class="bd-light">メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+    
+        <tr>
+          <td class="bd-light">会員ステータス</td>
+          <td>
+            <% if @user.is_active %>
+              <p class="text-success"><strong>有効</strong></p>
+            <% else %>
+              <p class="text-danger"><strong>停止</strong></p>
+            <% end %>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="bd-light">投稿</td>
+        </tr>
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= image_tag item.get_image(200,200)%></td>
+          <td><%= item.name %>
+          </td>
+        </tr>
+        <% end %>
+        
+      </table>
+    </div>
+  </div>  
+  
+</div>

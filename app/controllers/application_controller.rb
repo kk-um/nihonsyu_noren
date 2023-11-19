@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_admin!, if: :admin_url
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   def admin_url
     request.fullpath.include?("/admin")
   end
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      admin_path
+      admin_comments_path
     when User
       items_path
     end

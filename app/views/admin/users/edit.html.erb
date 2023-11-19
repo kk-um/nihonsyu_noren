@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+      <h5 class="border p-3 my-3">
+        会員情報編集
+      </h5>
+  </div>
+  <%= render "layouts/errors", obj: @user %>
+
+  <div class="row d-flex justify-content-center">
+    <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @user.id %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>ユーザー名</td>
+          <td><%= @user.name %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @user.email %></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>会員ステータス</td>
+          <td>
+            <%= f.radio_button :is_active, :true %>
+            <%= f.label :is_active, "有効", { value: :true }  %>
+
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "停止", { value: :false } %>
+          </td>
+        </tr>
+      </table>
+
+      <div class="row d-flex justify-content-center">
+        <tr>
+          <td></td>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </tr>
+      </div>
+    <% end %>
+  </div>
+</div>

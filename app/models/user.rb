@@ -10,6 +10,12 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image
   
+# ログイン可能かのメソッド
+  def active_for_authentication?
+    super && (self.is_active === true)
+  end
+  
+  
 # ゲストユーザー
 GUEST_USER_EMAIL = "guest@example.com"
   def self.guest
