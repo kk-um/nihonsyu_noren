@@ -25,12 +25,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-  # get 'users/my_page' => 'users#show'
-  # get 'users/quit' => "users#quit"
-  patch 'users/withdraw' => 'users#withdraw'
-  # resources :users, only: [:edit, :update]
-
+  resources :users do
+    # get 'users/my_page' => 'users#show'
+    get 'confirm' => "users#confirm"
+    patch 'withdraw' => 'users#withdraw'
+  end
+    
+    # resources :users, only: [:edit, :update]
+  
   # いらないかも↓
   # resources :users do
   #   resources :comments, only: [:create,:destroy],module: 'users'

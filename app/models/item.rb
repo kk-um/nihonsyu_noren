@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
   has_one_attached :image
-  
+
   belongs_to :user
   has_many :likes, dependent: :destroy
-  
+
   # 中間テーブルを経由してgenreを関連付けている
   has_many :item_genre_relations
   has_many :genres, through: :item_genre_relations
@@ -16,11 +16,19 @@ class Item < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   # いいね機能で使用↓
   def favorited_by?(user)
     likes.exists?(user_id: user.id)
   end
+
+# 検索機能ransack
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
   
-  
+  def self.ransackable_associations(auth_object = nil)
+    ["user"]
+  end
+
 end

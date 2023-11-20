@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = params[:genre_id].present? ? Genre.find(params[:genre_id]).items : Item.all
+    @q = Item.ransack(params[:q])
+    @items = @q.result.includes(:user)
   end
 
   def show
