@@ -11,9 +11,14 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = params[:genre_id].present? ? Genre.find(params[:genre_id]).items : Item.all
     @q = Item.ransack(params[:q])
-    @item = @q.result.includes(:user)
+      if params[:genre_id].present? #genre_idで検索したら
+        @items = Genre.find(params[:genre_id]).items #genre_idで街頭するitemをとってくる
+      elsif params[:q].present? #genre_idで検索してなくてransackで検索してたら
+        @items = @q.result.includes(:user) #userの検索も含む結果を表示する
+      else
+        @items = Item.all #上のどちらでもない時itemを全て表示する
+      end
   end
 
   def show
