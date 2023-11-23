@@ -30,10 +30,17 @@
       <table class="table">
         <% @items.each do |item| %>
         <tr>
-          <td><%= image_tag item.get_image(200,200)%></td>
-          <td><%= item.name %>
-              <%= render 'items/like', item: item %>
-              <%= link_to "#{item.comments.count} コメント", item_path(item.id) %>
+          <td>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(200,200)%>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to item_path(item.id) do %>
+              <%= item.name %>
+            <% end %>
+            <%= render 'items/like', item: item %>
+            <%= link_to "#{item.comments.count} コメント", item_path(item.id) %>
           </td>
         </tr>
         <% end %>
