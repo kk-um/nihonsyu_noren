@@ -16,23 +16,3 @@ Admin.create!(
   email: 'admin@admin.com',
   password: 'password'
 )
-
-# item = Item.create!(
-#   name: "酒",
-#   explanation: "うまい",
-#   genre_id: 2,
-#   price: 25000,
-#   user_id: "",
-#   # is_sales: true
-#   # image: File.open(Rails.root.join("app/assets/images/cake23.jpg"))
-#   )
-# item.image.attach(io: File.open(Rails.root.join("app/assets/images/top.jpg")), filename: "top.jpg")
-
-# 10.times do |num|
-# User.create!(
-#   name: "aa#{num + 1}",
-#   email: "email#{num + 1}@email",
-#   password: "password#{num + 1}",
-#   password_confirmation: "password#{num + 1}",
-# )
-# end

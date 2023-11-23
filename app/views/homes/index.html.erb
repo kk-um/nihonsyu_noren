@@ -1,20 +1,37 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
+    <h2>ようこそ日本酒のれんへ</h2>
+  </div>
+
+  <div class="row mt-5">
     <div class="col-md-6">
-      <%= image_tag 'top.jpg' %>
+      <%= image_tag 'top.jpg', size: { width: '100%', height: '100%' }, class: 'img-fluid' %>
     </div>
-     <div class="col-md-6">
-      <!--<div class="btn-wrapper col-10 mx-auto">-->
-      <!--<div class="row">-->
-        <%= link_to "Log in",new_user_session_path, class: "btn btn-primary btn-sm mb-3 sign_in" %>
-      <!--</div>-->
-      <!--<div class="row">-->
-        <%= link_to "Sign Up",new_user_registration_path, class: "btn btn-success btn-sm mb-3 sign_up" %>
-      <!--</div>-->
-      <!--<div class="row">-->
-        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm mb-3 sign_in", method: :post %>
-      <!--</div>-->
-      <!--</div>-->
-      </div>
+
+    <div class="col-md-6">
+      <table class="table table-borderless" style="text-align: center;">
+        <tr>
+          <td><strong>ここでは日本酒に関する投稿・記録が残せます。<br>
+              他の人の投稿によって<br>
+              新たな出会いもあるかもしれません。<br>
+              あなたにとって最高の一杯を。</strong>
+          </td>
+        </tr>
+
+      <tr>
+        <td><%= link_to "ろぐいん",new_user_session_path, class: "btn btn-primary btn-sm mb-3 sign_in" %></td>
+      </tr>
+
+      <tr>
+        <td><%= link_to "新規登録",new_user_registration_path, class: "btn btn-success btn-sm mb-3 sign_up" %></td>
+      </tr>
+
+      <tr>
+        <td>※まずはお試しで利用してみたい方はこちら↓<br>
+            （プロフィール編集のみできない使用になっております）<br>
+            <%= link_to "げすと様（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm mb-3 sign_in", method: :post %>
+        </td>
+      </tr>
+    </div>
   </div>
 </div>
