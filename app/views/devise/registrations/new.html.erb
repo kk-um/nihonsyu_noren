@@ -35,7 +35,7 @@
 <!--<%= render "devise/shared/links" %>-->
 
 
-<!--ながのケーキ参考↓-->
+
 <div class="container">
   <div class="row d-flex justify-content-center">
     <h5 class="border p-3 my-3">
@@ -45,7 +45,7 @@
   </div>
   <br>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <!--<#%= render "public/shared/error_messages", resource: resource %>-->
+    <%= render "layouts/errors", obj: @user %>
 
   
   <div class="row d-flex justify-content-center">

@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   has_many :genres, through: :item_genre_relations
   has_many :comments, dependent: :destroy
 
+  validates :name, presence: true
+  
   def get_image(width,height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

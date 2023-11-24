@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_one_attached :profile_image
+  
+  validates :name, presence: true
+  validates :email, presence: true
 
 # ログイン可能かのメソッド
   def active_for_authentication?
