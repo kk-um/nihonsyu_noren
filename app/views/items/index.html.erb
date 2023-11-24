@@ -1,7 +1,10 @@
 <div class="container mt-2">
-  <!--ジャンル検索-->
-  <div class ="row text-right">
+  <div class ="row">
     <div class="col">
+      <h2>投稿一覧</h2>
+    </div>
+<!--ジャンル検索-->
+    <div class="col text-right">
       <%= render 'search', q: @q, url: users_path %>
       <%= form_tag items_path, method: :get do %>
       <%= select_tag :genre_id,
@@ -11,7 +14,7 @@
     </div>
   </div>
 
-<h2>投稿一覧</h2>
+<!--投稿されたもの↓-->
   <div class="row">
     <div class="col-md-3">
       <table class="table">
@@ -47,7 +50,8 @@
             </tr>
 
             <tr>
-              <td><%= render 'like', item: item %></td>
+              <td id="item_like_<%=item.id %>">
+              <%= render 'items/likes/like', item: item %></td>
               <td><%= link_to "#{item.comments.count} コメント", item_path(item.id) %></td>
             </tr>
           </tbody>

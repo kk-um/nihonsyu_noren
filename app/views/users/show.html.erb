@@ -39,7 +39,8 @@
             <%= link_to item_path(item.id) do %>
               <%= item.name %>
             <% end %>
-            <%= render 'items/like', item: item %>
+            <td id="item_like_<%=item.id %>">
+            <%= render 'items/likes/like', item: item %></td>
             <%= link_to "#{item.comments.count} コメント", item_path(item.id) %>
           </td>
         </tr>
