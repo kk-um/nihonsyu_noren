@@ -4,7 +4,7 @@
 
   <!--画像-->
     <div class="col-md-6">
-      <%= image_tag @item.get_image(300,400)%>
+      <%= image_tag @item.image, class:"w-100",style:"aspect-ratio:16/9; object-fit: contain;" %>
     </div>
 
     <div class="col-md-6">

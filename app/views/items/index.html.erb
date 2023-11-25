@@ -15,49 +15,34 @@
   </div>
 
 <!--投稿されたもの↓-->
-  <div class="row">
-    <div class="col-md-3">
-      <table class="table">
-
-        <% @items.each do |item| %>
-        <thead>
-          <tr>
-            <td><%= image_tag item.user.get_profile_image(35,35) %></td>
-            <td><%= item.user.name %></td>
-          </tr>
-        </thead>
-          <tbody>
-            <tr>
-              <td>
-                <%= link_to item_path(item.id) do %>
-                  <%= image_tag item.get_image(100,100) %>
-                <% end %>
-              </td>
-            </tr>
-    <!--商品名-->
-            <tr>
-              <td>
-                <%= link_to item_path(item.id) do %>
-                  <%= item.name %>
-                <% end %>
-              </td>
-            </tr>
-    <!--ジャンル-->
-            <tr>
-              <td><% item.genres.each do |genre| %>
-                  <%= genre.name %>
-                  <% end %></td>
-            </tr>
-
-            <tr>
-              <td id="item_like_<%=item.id %>">
-              <%= render 'items/likes/like', item: item %></td>
-              <td><%= link_to "#{item.comments.count} コメント", item_path(item.id) %></td>
-            </tr>
-          </tbody>
-        <% end %>
-
-      </table>
-    </div>
+  <div class="row mt-3">
+    <% @items.each do |item| %>
+      <div class="card col-md-3">
+        <div class="card-header">
+    <!--ユーザー情報-->
+          <%= image_tag item.user.get_profile_image(35,35) %>
+          <%= item.user.name %>
+    <!--画像-->
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image(400,400), class:"card-img-top" %>
+          <% end %>
+        </div>
+    <!--内容詳細-->
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text">
+            <% item.genres.each do |genre| %>
+              <%= genre.name %>
+            <% end %>
+          </p>
+          <p><%= truncate(item.explanation, length: 15) %></p>
+    <!--いいね・コメント-->
+          <div class = "d-flex">
+            <div class = "mr-4"><%= render 'items/likes/like', item: item %></div>
+            <div><%= link_to "#{item.comments.count} コメント", item_path(item.id) %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
