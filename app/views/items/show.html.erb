@@ -48,7 +48,9 @@
 
 
 <!--いいね機能-->
-<div><%= render 'items/likes/like', item: @item %></div>
+<div id="items_likes_like_<%= @item.id %>">
+  <%= render 'items/likes/like', item: @item %>
+</div>
 
 
 <!--コメント機能-->

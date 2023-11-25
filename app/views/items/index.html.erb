@@ -38,7 +38,9 @@
           <p><%= truncate(item.explanation, length: 15) %></p>
     <!--いいね・コメント-->
           <div class = "d-flex">
-            <div class = "mr-4"><%= render 'items/likes/like', item: item %></div>
+            <div id="items_likes_like_<%= item.id %>" class = "mr-4">
+              <%= render 'items/likes/like', item: item %>
+              </div>
             <div><%= link_to "#{item.comments.count} コメント", item_path(item.id) %></div>
           </div>
         </div>
