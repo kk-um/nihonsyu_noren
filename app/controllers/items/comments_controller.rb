@@ -3,8 +3,13 @@ class Items::CommentsController < ApplicationController
     item = Item.find(params[:item_id])
     comment = current_user.comments.new(comment_params)
     comment.item_id = item.id
-    comment.save
-    redirect_to item_path(item)
+    if comment.save
+      redirect_to item_path(item)
+    else
+      @item = item
+      @comment = comment
+      render 'items/show'
+    end
   end
 
   def destroy

@@ -17,3 +17,11 @@
 header, main, footer {
   font-family: "Sawarabi Mincho";
 }
+
+main {
+  margin-bottom: 100px;
+}
+#messages{
+  opacity: 1;
+  transition: all 2s;
+}

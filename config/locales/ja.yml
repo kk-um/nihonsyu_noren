@@ -3,11 +3,10 @@ ja:
     inactive_user: "このアカウントは管理者によりロックされたため利用できません。"
   activerecord:
     attributes:
+      comment:
+        comment: コメント
       user:
-        confirmation_sent_at: パスワード確認送信時刻
-        confirmation_token: パスワード確認用トークン
-        confirmed_at: パスワード確認時刻
-        created_at: 作成日
+        name: 名前
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
@@ -147,6 +146,7 @@ ja:
   errors:
     format: "%{attribute}%{message}"
     messages:
+      record_invalid: "%{errors}"
       accepted: を受諾してください
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
