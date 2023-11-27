@@ -1,13 +1,14 @@
 <!--投稿-->
 <div class="container">
+  <%= render "layouts/errors", obj: @item %>
   <div class="row d-flex justify-content-center">
     <h5 class="border border-white p-3 my-3">
       投稿フォーム
     </h5>
 　</div>
-    
+
     <div class="row d-flex justify-content-center">
-      <%= render "layouts/errors", obj: @item %>
+     
 
  　　   <%= form_with model: @item, url: items_path, method: :post do |f| %>
       <table class="table table-borderless">
@@ -30,7 +31,7 @@
         <tr>
           <td><%= f.label :genre, 'ジャンル' %></td>
           <td>
-            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %> 
+            <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |genre| %>
               <%= genre.label do %>
                 <%= genre.check_box %>
                 <%= genre.text %>

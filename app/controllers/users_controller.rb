@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @items = @user.items
+    @items = @user.items.order(created_at: :desc)
     # @item = Item.find(params[:id])
   end
 

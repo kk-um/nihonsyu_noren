@@ -6,8 +6,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.save
-    redirect_to '/items'
+    if @item.save
+      redirect_to '/items'
+    else
+      render :new
+    end
   end
 
   def index
@@ -17,7 +20,7 @@ class ItemsController < ApplicationController
       elsif params[:q].present? #genre_idで検索してなくてransackで検索してたら
         @items = @q.result.includes(:user) #userの検索も含む結果を表示する
       else
-        @items = Item.all #上のどちらでもない時itemを全て表示する
+        @items = Item.all.order(created_at: :desc) #上のどちらでもない時itemを全て表示する
       end
   end
 

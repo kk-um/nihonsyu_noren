@@ -5,6 +5,8 @@ ja:
     attributes:
       comment:
         comment: コメント
+      item:
+        name: 日本酒名
       user:
         name: 名前
         current_password: 現在のパスワード
@@ -132,16 +134,6 @@ ja:
       send_instructions: アカウントのロック解除方法を数分以内にメールでご連絡します。
       send_paranoid_instructions: アカウントが見つかった場合、アカウントのロック解除方法を数分以内にメールでご連絡します。
       unlocked: アカウントをロック解除しました。
-  # errors:
-  #   messages:
-  #     already_confirmed: は既に登録済みです。ログインしてください。
-  #     confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。
-  #     expired: の有効期限が切れました。新しくリクエストしてください。
-  #     not_found: は見つかりませんでした。
-  #     not_locked: はロックされていません。
-  #     not_saved:
-  #       one: エラーが発生したため %{resource} は保存されませんでした。
-  #       other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
 
   errors:
     format: "%{attribute}%{message}"
