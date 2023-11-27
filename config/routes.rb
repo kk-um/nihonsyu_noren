@@ -31,9 +31,8 @@ Rails.application.routes.draw do
     patch 'withdraw' => 'users#withdraw'
   end
     
-    # resources :users, only: [:edit, :update]
+  # resources :users, only: [:edit, :update]
   
-  # いらないかも↓
   # resources :users do
   #   resources :comments, only: [:create,:destroy],module: 'users'
   # end
