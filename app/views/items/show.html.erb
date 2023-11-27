@@ -32,7 +32,7 @@
         <tr>
           <td>
             <% if @item.user == current_user %>
-              <%= link_to "削除", item_path(@item), method: :delete %>
+              <%= link_to "削除", item_path(@item), method: :delete, data: {confirm: "削除しますか？"} %>
             <% end %>
           </td>
         </tr>
@@ -62,7 +62,7 @@
       <%= comment.created_at.strftime('%Y/%m/%d') %>
       <%= comment.comment %>
       <% if comment.user == current_user %>
-        <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
+        <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete, data: {confirm: "削除しますか？"} %>
       <% end %></p>
     <% end %>
   </div>
