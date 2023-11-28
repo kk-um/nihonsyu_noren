@@ -23,7 +23,13 @@
 ・飲んでみた感想を知りたい時
 
 ## 設計書
-後ほど作成予定
+・ER図(https://drive.google.com/file/d/1u8oLVSnFjO3A6L6dNVNl53ehCqpKyh_M/view?usp=sharing)  
+・テーブル定義書(https://docs.google.com/spreadsheets/d/1nzQ_J7VVzhhUMsDpIai-Iy3dcSs2AWHh/edit?usp=sharing&ouid=110804003420662682617&rtpof=true&sd=true)  
+・詳細設計書(https://docs.google.com/spreadsheets/d/1ddbL9YdlxilWbjzw3KG_Y_XcBsh_DqjpCcV0zGAYto4/edit?usp=sharing)  
+
+## テスト仕様書
+・https://docs.google.com/spreadsheets/d/1w52KR3m2GWdq8NNgd8Gv4sJR-iYJ5OyC/edit?usp=sharing&ouid=110804003420662682617&rtpof=true&sd=true  
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
