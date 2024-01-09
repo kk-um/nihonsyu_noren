@@ -29,12 +29,6 @@ class ItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
