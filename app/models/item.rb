@@ -22,6 +22,9 @@ class Item < ApplicationRecord
 
   # いいね機能で使用↓
   def favorited_by?(user)
+    #userがnilの場合falseで返す
+    return false unless user.present?
+    #likesテーブル内に、user_idが引数として渡されたユーザーのIDと一致し、item_idが自分のアイテムのIDと一致するレコードが存在するかどうかの
     likes.exists?(user_id: user.id)
   end
 
