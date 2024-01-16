@@ -30,9 +30,21 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    begin
     @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to '/items'
+
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to '/items'
+    else
+      redirect_to '/items'
+      flash[:alert] = "他人の投稿は削除できません"
+    end
+
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = 'その投稿は存在しません'
+      redirect_back(fallback_location: '/items')
+    end
   end
 
   private
@@ -40,6 +52,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :name, :explanation, :price, genre_ids: [])
   end
-
 
 end
