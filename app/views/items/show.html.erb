@@ -62,12 +62,12 @@
       <%= comment.created_at.strftime('%Y/%m/%d') %>
       <%= comment.comment %>
       <% if comment.user == current_user %>
-        <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete, data: {confirm: "削除しますか？"} %>
+        <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete, data: {confirm: "削除しますか？"}, remote: true %>
       <% end %></p>
     <% end %>
   </div>
   <div>
-    <%= form_with model: [@item, @comment] do |f| %>
+    <%= form_with model: [@item, @comment], local: false do |f| %>
       <%= f.text_area :comment, style: "width:100%", rows: '3', placeholder: "コメントをここに" %>
       <%= f.submit "送信する"%>
     <% end %>
